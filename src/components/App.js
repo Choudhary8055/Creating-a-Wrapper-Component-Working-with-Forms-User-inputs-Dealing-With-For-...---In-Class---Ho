@@ -35,13 +35,21 @@ class App extends Component {
       { name: "Mount Abu", country: "India" },
       { name: "Tirupati", country: "India" }
     ];
+    this.filterCityList = this.cityList.filter((item) => {
+      return item.country === "India";
+    });
   }
 
   render() {
     return (
       <div id="main">
-        <div>Cities List</div>
-        {this.cityList && this.cityList.map((item) => <li>{item.name}</li>)}
+        {/* <div>Cities List</div> */}
+        <ol>
+          {this.cityList &&
+            this.cityList.map((item) => (
+              <li key={` location ${item + 1}`}>{item.name}</li>
+            ))}
+        </ol>
       </div>
     );
   }
